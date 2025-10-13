@@ -1,0 +1,539 @@
+body {
+    font-family: "Lato", Arial, sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Transition fluide pour le sticky menu */
+#stickyNav {
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-header {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.p-text {
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    font-weight: bold;
+    font-size: 18px;
+    gap: 35px;
+}
+
+.hero-banner {
+    height: 70vh;
+    /* hauteur 80% de l'écran */
+    background: url("../img/renovation-toiture.jpg") no-repeat center center/cover;
+    position: relative;
+}
+
+/* filtre foncé pour lisibilité du texte */
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-banner .container {
+    position: relative;
+    z-index: 1;
+    /* texte au-dessus du filtre */
+}
+
+#titre-ban {
+  font-size: 75px;
+  font-weight: 900;
+  font-family: 'Barlow', sans-serif;
+  line-height: 1;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.20px #fff; /* contour blanc */
+  color: #b42331;
+  margin: 0;
+  padding: 0;
+}
+
+/* Texte "BREIZH" avec remplissage animé */
+.text-anim {
+  font-size: 80px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: transparent; /* pas de couleur directe */
+  -webkit-text-stroke: 1px #fff; /* contour blanc */
+  background: linear-gradient(90deg, #b42331, rgba(183, 43, 57, 0.326), #bd646d00);
+  background-size: 200% auto; /* pour créer du mouvement */
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: moveBg 5s linear infinite;
+}
+
+/* Animation du dégradé */
+@keyframes moveBg {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.stock-text {
+  position: relative;
+  left: 119px;
+  top: -38px;
+}
+
+.btn-custom {
+    background-color: #0669a2;
+    /* bleu clair du logo */
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #054872;
+    /* une teinte plus foncée au hover */
+    color: #fff;
+}
+
+.front-text {
+    position: relative;
+    z-index: 2
+}
+
+.section-tittle .front-text h2 {
+    color: #b42331;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-family: "Teko", sans-serif
+}
+
+.back-text {
+    font-size: 80px;
+    font-weight: 800;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #ffffff;
+    -webkit-text-fill-color: #d7d3d349;
+    margin: 0;
+    line-height: 1;
+    position: absolute;
+    transform: translateY(-114%);
+    right: 0;
+    left: 52px
+}
+
+/* Carte service */
+.services-section .service-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 230px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  transform: translateY(0);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.services-section .service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.25);
+}
+
+/* Image */
+.services-section .service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 1s ease;
+}
+.services-section .service-card:hover img {
+  transform: scale(1.15);
+}
+
+/* Filtre sombre permanent */
+.services-section .service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+  transition: background .4s ease;
+}
+.services-section .service-card:hover::after {
+  background: rgba(0,0,0,0.6);
+}
+
+/* Titre centré */
+.services-section .card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 2;
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+  transition: opacity .4s ease;
+}
+.services-section .service-card:hover .card-title {
+  opacity: 0.2;
+}
+
+/* Description overlay avec fond bleu foncé */
+.services-section .service-desc {
+  position: absolute;
+  inset: 0;
+  background: #03253dc1; /* BLEU FONCÉ */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease;
+  z-index: 3; /* au-dessus du filtre */
+}
+.services-section .service-card:hover .service-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Classe lien animé */
+.link-underline {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.hero {
+    background: url("img/realisation/realisation1_ap.jpg") center/cover no-repeat;
+    color: #fff;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Lien à droite du titre */
+.realisation-link {
+  font-weight: 600;
+  color: #03253d;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color .3s ease;
+}
+
+.realisation-link i {
+  margin-left: 6px;
+  transition: transform .3s ease;
+}
+
+.realisation-link:hover {
+  color: #1da9e9;
+}
+
+.realisation-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Légendes avant/après */
+.realisation-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.realisation-card img {
+  width: 100%;
+  transition: transform .6s ease;
+}
+
+.realisation-card:hover img {
+  transform: scale(1.05);
+}
+
+.realisation-card .caption {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  background: rgba(3, 37, 61, 0.9);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* Section CTA */
+.cta-section {
+  background: #03253d; /* bleu foncé charte */
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Titre CTA */
+.cta-section h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+/* Bouton CTA */
+.btn-cta {
+  background-color: #1da9e9; /* bleu clair du logo */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-weight: 600;
+  transition: all .3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #0d6c94; /* bleu clair foncé au hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Section About */
+.about-section {
+  background: #f9f9f9; /* léger fond clair pour contraste */
+}
+
+/* Image About */
+.about-img {
+  max-width: 75%;   /* réduit la taille de l’image */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Titre About */
+.about-section .section-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #03253d;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+}
+
+/* Ligne décorative sous le titre */
+.about-section .section-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #03253d, #1da9e9);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+
+footer {
+    background: #222;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+/* ------------------------------
+   RESPONSIVE DESIGN
+   ------------------------------ */
+
+/* Écrans ≤ 1200px (tablettes larges) */
+@media (max-width: 1200px) {
+  #titre-ban {
+    font-size: 60px;
+  }
+  .text-anim {
+    font-size: 60px;
+  }
+  .section-tittle .front-text h2 {
+    font-size: 38px;
+  }
+  .back-text {
+    font-size: 65px;
+    left: 20px;
+  }
+}
+
+/* Écrans ≤ 992px (tablettes) */
+@media (max-width: 992px) {
+  .hero-banner {
+    height: 55vh;
+  }
+  #titre-ban {
+    font-size: 48px;
+  }
+  .text-anim {
+    font-size: 48px;
+  }
+  .menu {
+    font-size: 16px;
+    gap: 20px;
+  }
+  .about-img {
+    max-width: 90%; /* image un peu plus grande sur tablette */
+  }
+  .services-section .service-card {
+    height: 200px;
+  }
+  .section-tittle .front-text h2 {
+    font-size: 32px;
+  }
+  .back-text {
+    font-size: 50px;
+  }
+}
+
+/* Écrans ≤ 768px (mobiles) */
+@media (max-width: 768px) {
+  .contact-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .hero-banner {
+    height: 45vh;
+  }
+  #titre-ban {
+    font-size: 36px;
+  }
+  .text-anim {
+    font-size: 36px;
+  }
+  .section-tittle .front-text h2 {
+    font-size: 28px;
+  }
+  .back-text {
+    font-size: 40px;
+    left: 10px;
+  }
+  .services-section .service-card {
+    height: 180px;
+  }
+  .realisation-card .caption {
+    font-size: 1rem;
+    padding: 3px 8px;
+  }
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+  .about-section .section-title {
+    font-size: 1.8rem;
+  }
+  .about-img {
+    max-width: 100%;
+  }
+}
+
+/* banière */
+
+/* Tablettes */
+@media (max-width: 992px) {
+  .stock-text {
+    left: 80px;
+    top: -25px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .stock-text {
+    left: 40px;
+    top: -15px;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+  .stock-text {
+    left: 20px;
+    top: -10px;
+  }
+}
+/* fin banière */
+
+/* Écrans ≤ 576px (petits mobiles) */
+@media (max-width: 576px) {
+  #titre-ban {
+    font-size: 28px;
+  }
+  .text-anim {
+    font-size: 28px;
+  }
+  .menu {
+    font-size: 14px;
+    gap: 12px;
+  }
+  .services-section .service-card {
+    height: 150px;
+  }
+  .section-tittle .front-text h2 {
+    font-size: 22px;
+  }
+  .back-text {
+    font-size: 30px;
+  }
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+  .btn-cta {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  .realisation-link {
+    font-size: 0.9rem;
+  }
+}

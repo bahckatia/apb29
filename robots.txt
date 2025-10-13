@@ -1,0 +1,69 @@
+# ======================================================
+# robots.txt - Artisan Peintre Breizh (APB29)
+# Optimisé pour le SEO & la visibilité locale
+# Date : 2025-10-11
+# ======================================================
+
+# --- Règles générales ---
+User-agent: *
+Allow: /
+
+# --- Bloque les répertoires techniques non pertinents pour le SEO ---
+Disallow: /css/
+Disallow: /js/
+Disallow: /fonts/
+Disallow: /img/
+Disallow: /uploads/
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /backup/
+
+# --- Autorise les fichiers essentiels (design, images du logo, script principal) ---
+Allow: /css/style.css
+Allow: /js/script.js
+Allow: /img/logo.png
+Allow: /img/logo_blanc.png
+
+# --- Priorité sitemap pour une exploration efficace ---
+Sitemap: https://artisanpeintrebreizh29.fr/sitemap.xml
+
+# --- Crawl-delay pour serveurs mutualisés (ralentit un peu les robots trop agressifs) ---
+Crawl-delay: 5
+
+# --- Googlebot : autoriser tout sauf les dossiers techniques ---
+User-agent: Googlebot
+Disallow: /admin/
+Allow: /
+
+# --- Google Images : autorise l’indexation des photos de réalisations ---
+User-agent: Googlebot-Image
+Allow: /img/
+Disallow: /admin/
+
+# --- Bingbot (Microsoft) ---
+User-agent: Bingbot
+Disallow: /admin/
+Allow: /
+
+# --- Qwant / DuckDuckGo (basés sur Bing) ---
+User-agent: DuckDuckBot
+User-agent: Qwantify
+Allow: /
+Disallow: /admin/
+
+# --- OpenAI / Perplexity : autoriser l’analyse de contenu (utile pour IA search & local SEO) ---
+User-agent: GPTBot
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+
+# --- Respect de la confidentialité et performance ---
+User-agent: MJ12bot
+User-agent: AhrefsBot
+User-agent: SemrushBot
+Crawl-delay: 10
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /backup/
+
+# ======================================================
