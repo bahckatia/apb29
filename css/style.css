@@ -314,6 +314,39 @@ html, body {
   border-radius: 6px;
 }
 
+/* Section Atouts */
+.atouts-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.atouts-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.atouts-list li:last-child {
+  border-bottom: none;
+}
+
+.atouts-list i {
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.intervention-zone {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-left: 4px solid #ff6b35;
+}
+
+.intervention-zone p strong {
+  color: #03253d;
+}
+
 /* Section CTA */
 .cta-section {
   background: #03253d; /* bleu foncé charte */
@@ -537,3 +570,4 @@ footer {
     font-size: 0.9rem;
   }
 }
+
