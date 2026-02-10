@@ -340,7 +340,7 @@ html, body {
 
 .intervention-zone {
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border-left: 4px solid #ff6b35;
+  border-left: 4px solid #b42331;
 }
 
 .intervention-zone p strong {
@@ -570,4 +570,5 @@ footer {
     font-size: 0.9rem;
   }
 }
+
 
